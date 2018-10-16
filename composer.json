@@ -42,5 +42,8 @@
     "config": {
         "sort-packages": true
     },
+    "replace": {
+        "illuminate/database": "self.version"
+    },
     "minimum-stability": "dev"
 }
