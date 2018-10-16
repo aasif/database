@@ -194,11 +194,13 @@ class BelongsToMany extends Relation
      */
     protected function addWhereConstraints()
     {
-        $this->query->where(
-            $this->getQualifiedForeignPivotKeyName(), '=', $this->parent->{$this->parentKey}
-        );
-
-        return $this;
+	if ($this->parent->{$this->parentKey}){
+            $this->query->where(
+                $this->getQualifiedForeignPivotKeyName(), '=', $this->parent->{$this->parentKey}
+            );
+	}
+        
+	return $this;
     }
 
     /**
